@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "232961456506",
+    "project_id": "checque-pool",
+    "storage_bucket": "checque-pool.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232961456506:android:494b733ddebb81f8c47ec3",
+        "android_client_info": {
+          "package_name": "com.lucky.flutter_app_checkque_pool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232961456506-69n4p1ttsr0m2j2lp18e53nrkeqbs9ba.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lucky.flutter_app_checkque_pool",
+            "certificate_hash": "0a3f1d7568d915ff6dd2a81ad6298d2a5e1b3a4e"
+          }
+        },
+        {
+          "client_id": "232961456506-dp1cc2v5obpuvibim6otueup4v9i10u9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjyOcUiukE4jpqhlVAlPQyde6mSE01lTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232961456506-dp1cc2v5obpuvibim6otueup4v9i10u9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
