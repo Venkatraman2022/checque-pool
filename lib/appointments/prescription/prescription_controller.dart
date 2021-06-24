@@ -18,6 +18,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 
 class PrescriptionController extends GetxController {
+  static PrescriptionController instance = Get.find();
   String imageUrl;
   String check;
 getData(){
@@ -25,7 +26,7 @@ getData(){
       .collection('hospital')
       .doc('doctorDetails')
       .collection('doctorDetails')
-      .doc(FirebaseAuth.instance.currentUser.displayName)
+      .doc('FirebaseAuth.instance.currentUser.displayName')
       .get().then((value) =>{
   check = value['doctorName'],
   });
@@ -45,7 +46,7 @@ getData();
             .collection('hospital')
             .doc('doctorDetails')
             .collection('doctorDetails')
-            .doc(FirebaseAuth.instance.currentUser.displayName)
+            .doc('FirebaseAuth.instance.currentUser.displayName')
             .snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData || snapshot.hasError) {
@@ -87,7 +88,7 @@ getData();
       if (image != null){
         //Upload to Firebase
         var snapshot = await _storage.ref()
-            .child('Hospital/${FirebaseAuth.instance.currentUser.displayName} - ${imageName}')
+            .child('Hospital/${'FirebaseAuth.instance.currentUser.displayName'} - ${imageName}')
             .putFile(file)
             .whenComplete(() => print('done'));
 

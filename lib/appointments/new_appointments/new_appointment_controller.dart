@@ -5,7 +5,7 @@ import 'package:flutter_app_checkque_pool/profile/profile.dart';
 import 'package:get/get.dart';
 
 class NewAppointmentController extends GetxController {
-
+  static NewAppointmentController instance = Get.find();
   final _auth = FirebaseAuth.instance;
   TextEditingController
       nameController,

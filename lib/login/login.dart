@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_checkque_pool/chat/chat_screen.dart';
+import 'package:flutter_app_checkque_pool/constants/controllers.dart';
 import 'package:flutter_app_checkque_pool/hero_tag/hero_tag.dart';
 import 'package:flutter_app_checkque_pool/login/login_controller.dart';
+import 'package:flutter_app_checkque_pool/profile/profile.dart';
+// import 'package:flutter_app_checkque_pool/utills/UserSimplePreference.dart';
 import 'package:get/get.dart';
-
 import 'create_an_account/creat an account.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class LoginPage extends StatefulWidget {
   @override
@@ -12,8 +19,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
-  // TextEditingController emailController = TextEditingController();
-  // TextEditingController passwordController = TextEditingController();
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
 
   var emailKey = GlobalKey<FormState>();
@@ -22,8 +30,62 @@ class _LoginPageState extends State<LoginPage> {
 
   bool secureText = true;
   bool showSpinner = false;
+  Future userLogin() async{
 
-  final  LoginController loginController = Get.put(LoginController());
+    // Showing CircularProgressIndicator.
+
+
+    // Getting value from Controller
+    dynamic email = emailController.text;
+    dynamic password = passwordController.text;
+
+    // SERVER LOGIN API URL
+    var url = 'https://www.docllpdemo.com/checkpool/api/dapi/userlogin';
+
+    // Store all data with Param Name.
+    var data = {'username': email, 'password' : password};
+
+    // Starting Web API Call.
+    var response = await http.post(Uri.parse(url),
+        body: json.encode(data)
+    );
+    if(response.statusCode==200)
+    {
+
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      preferences.setString('username', emailController.text.toString());
+      loginController.userName.value = emailController.text.toString();
+      loginController.userPassword.value = passwordController.text.toString();
+
+    Get.to(ProfilePage());
+
+    }
+    else{
+      Get.snackbar('Warning', 'Please Check Your Email ID and Password',backgroundColor: Colors.red ,colorText: Colors.white);
+      print(response.statusCode);
+    }
+
+    // Getting Server response into variable.
+
+
+    // If the Response Message is Matched.
+
+    // If Email or Password did not Matched.
+    // Hiding the CircularProgressIndicator.
+
+
+    // Showing Alert Dialog with Response JSON Message.
+
+
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -69,10 +131,8 @@ class _LoginPageState extends State<LoginPage> {
                     child: TextFormField(
                       textInputAction: TextInputAction.next,
                       onEditingComplete: () => node.nextFocus(), //
-                      validator: (String value){
-                       return LoginController().validateEmail(value);
-                      },
-                      controller:loginController.emailController,
+
+                      controller:emailController,
                       onSaved: (value){
                         loginController.email = value;
                       },
@@ -93,7 +153,7 @@ class _LoginPageState extends State<LoginPage> {
                           fontSize: size.width* 0.03,
                           color:Colors.blue,
                         ),
-                        ),
+                      ),
                       style: TextStyle(color: Colors.black),
                     ),
 
@@ -114,13 +174,13 @@ class _LoginPageState extends State<LoginPage> {
                     child: TextFormField(
                       textInputAction: TextInputAction.next,
                       onEditingComplete: () => node.nextFocus(), //
-                      controller: LoginController().passwordController,
+                      controller: passwordController,
                       validator: (String value){
                         return loginController.validatePassword(value);
                       },
                       obscureText: false,
                       onSaved: (value){
-                       loginController.password = value;
+                        loginController.password = value;
                       },
                       autofocus: true,
                       decoration: InputDecoration(
@@ -210,7 +270,7 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(30.0),
                           child: MaterialButton(
                             onPressed: () async {
-                              loginController.checkLogin();
+                              userLogin();
                               // setState(() {
                               //   showSpinner = true;
                               // });
@@ -265,7 +325,7 @@ class _LoginPageState extends State<LoginPage> {
                         children: [
                           TextButton(
                             onPressed: (){}, child: Text(
-                              'Forget Password',style: TextStyle(color: Colors.black),
+                            'Forget Password',style: TextStyle(color: Colors.black),
                           ),),
                         ],
                       ),

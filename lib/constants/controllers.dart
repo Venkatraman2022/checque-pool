@@ -1,0 +1,17 @@
+
+
+import 'package:flutter_app_checkque_pool/appointments/new_appointments/new_appointment_controller.dart';
+import 'package:flutter_app_checkque_pool/appointments/patient_details/patient_details_controller.dart';
+import 'package:flutter_app_checkque_pool/appointments/pending_appointments/pending_appointmentController.dart';
+import 'package:flutter_app_checkque_pool/appointments/prescription/prescription_controller.dart';
+import 'package:flutter_app_checkque_pool/login/create_an_account/create_controller.dart';
+import 'package:flutter_app_checkque_pool/login/login_controller.dart';
+import 'package:flutter_app_checkque_pool/profile/profile_controller.dart';
+
+NewAppointmentController newAppointmentController = NewAppointmentController.instance;
+PatientDetailsController patientDetailsController = PatientDetailsController.instance;
+PendingAppointments pendingAppointmentsController = PendingAppointments.instance;
+PrescriptionController prescriptionController = PrescriptionController.instance;
+CreateController createController = CreateController.instance;
+LoginController loginController = LoginController.instance;
+ProfileController profileController = ProfileController.instance;

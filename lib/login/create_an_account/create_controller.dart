@@ -5,6 +5,7 @@ import 'package:flutter_app_checkque_pool/profile/profile.dart';
 import 'package:get/get.dart';
 
 class CreateController extends GetxController {
+  static CreateController instance = Get.find();
   var nameKey = GlobalKey<FormState>();
   var doctorIDKey = GlobalKey<FormState>();
   var phoneNumKey = GlobalKey<FormState>();

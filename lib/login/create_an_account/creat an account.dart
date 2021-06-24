@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_checkque_pool/constants/controllers.dart';
 import 'package:flutter_app_checkque_pool/hero_tag/hero_tag.dart';
 import 'package:flutter_app_checkque_pool/sidebar/sidebar.dart';
 import 'package:get/get.dart';
@@ -15,7 +16,6 @@ class _CreateAnAccountState extends State<CreateAnAccount> {
   var scaffoldKey = GlobalKey<ScaffoldState>();
   bool showSpinner = false;
   bool secureText = true;
-  final  CreateController createController = Get.put(CreateController());
 
 
    FocusNode myFocusNode;

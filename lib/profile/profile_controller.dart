@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class ProfileController extends GetxController {
-
+  static ProfileController instance = Get.find();
   TextEditingController nameController,
       doctorIDController,
       phoneNumController,

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_checkque_pool/constants/controllers.dart';
 import 'package:flutter_app_checkque_pool/hero_tag/hero_tag.dart';
 import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -15,8 +16,8 @@ class Prescription extends StatefulWidget {
 }
 
 class _PrescriptionState extends State<Prescription> {
+
   String check;
-  final  PrescriptionController prescriptionController = Get.put(PrescriptionController());
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

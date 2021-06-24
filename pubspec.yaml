@@ -46,6 +46,8 @@ dependencies:
   syncfusion_flutter_pdf:
   flutter_cached_pdfview:
   circular_profile_avatar: ^2.0.0
+  http: ^0.13.3
+  shared_preferences: ^2.0.6
 
 
 

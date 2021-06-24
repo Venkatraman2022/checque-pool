@@ -7,12 +7,15 @@ import 'package:flutter_app_checkque_pool/sidebar/sidebar.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
+  static LoginController instance = Get.find();
   var emailKey = GlobalKey<FormState>();
   var passwordKey = GlobalKey<FormState>();
   final _auth = FirebaseAuth.instance;
    TextEditingController emailController,passwordController;
    var email = '';
    var password = '';
+   RxString userName = ''.obs;
+   RxString userPassword = ''.obs;
   @override
   void onInit() {
     // TODO: implement onInit

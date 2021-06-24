@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_checkque_pool/constants/controllers.dart';
 import 'package:flutter_app_checkque_pool/hero_tag/hero_tag.dart';
 import 'package:get/get.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -16,7 +17,6 @@ class _NewAppointmentsState extends State<NewAppointments> {
   var maskFormatterPhone = new MaskTextInputFormatter(mask: '+91 #####-#####', filter: { "#": RegExp(r'[0-9]') });
   var maskFormatterAge = new MaskTextInputFormatter(mask: '##/##/####', filter: { "#": RegExp(r'[0-9]') });
 
-  final  NewAppointmentController newAppointmentController = Get.put(NewAppointmentController());
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

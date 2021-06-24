@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_checkque_pool/appointments/patient_details/patient_details.dart';
 import 'package:flutter_app_checkque_pool/appointments/pending_appointments/pending_appointmentController.dart';
+import 'package:flutter_app_checkque_pool/constants/controllers.dart';
 import 'package:flutter_app_checkque_pool/hero_tag/hero_tag.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +14,6 @@ class PendingAppointment extends StatefulWidget {
 }
 
 class _PendingAppointmentState extends State<PendingAppointment> {
-  final  PendingAppointments pendingAppointmentsController = Get.put(PendingAppointments());
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

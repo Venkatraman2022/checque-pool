@@ -6,6 +6,7 @@ import 'package:date_format/date_format.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_checkque_pool/constants/controllers.dart';
 import 'package:flutter_app_checkque_pool/hero_tag/hero_tag.dart';
 import 'package:flutter_app_checkque_pool/profile/profile_controller.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -23,9 +24,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final ProfileController profileController = Get.put(ProfileController());
   bool autofocus = false;
-  var authPhone = FirebaseAuth.instance.currentUser.displayName;
+  // var authPhone = FirebaseAuth.instance.currentUser.displayName;
   var docID;
   String imageUrl ='https://image.shutterstock.com/image-vector/default-placeholder-doctor-halflength-portrait-260nw-1061744402.jpg';
 
@@ -110,7 +110,7 @@ var data;
             .collection('hospital')
             .doc('doctorDetails')
             .collection('doctorDetails')
-            .doc(authPhone)
+            .doc('authPhone')
             .snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData || snapshot.hasError) {
